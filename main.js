@@ -1,5 +1,5 @@
 // Modules to control application life and create native browser window
-const {app, BrowserWindow} = require('electron')
+const {app, BrowserWindow, Menu } = require('electron')
 const path = require('path')
 
 // Keep a global reference of the window object, if you don't, the window will
@@ -8,6 +8,36 @@ process.env["ELECTRON_DISABLE_SECURITY_WARNINGS"] = "true"
 
 let mainWindow
 
+const menuTemplate = [
+    {
+        label: "Game",
+        submenu: [
+            {
+                label: "New",
+                accelerator: process.platform === "darwin" ? "Command+N" : "Ctrl+N",
+                click: () => { mainWindow.webContents.send("io", "neu") }
+            },
+            {
+                type: "separator"
+            },
+            {
+                role: "quit",
+                accelerator: process.platform === "darwin" ? "Command+Q" : "Ctrl+Q"
+            }
+        ]
+    },
+    {
+        label: "Dev",
+        submenu: [
+            {
+                label: "Devtools",
+                click: () => { mainWindow.webContents.toggleDevTools() }
+            }
+
+        ]
+    }
+]
+
 function createWindow () {
   // Create the browser window.
   mainWindow = new BrowserWindow({
@@ -15,9 +45,9 @@ function createWindow () {
     height: 400,
     useContentSize: true,
     webPreferences: {
-      preload: path.join(__dirname, 'preload.js')
-    }
-  })
+      preload: path.join(__dirname, 'preload.js'),
+      nodeIntegration: true
+  }})
 
   // and load the index.html of the app.
   mainWindow.loadFile('index.html')
@@ -32,6 +62,9 @@ function createWindow () {
     // when you should delete the corresponding element.
     mainWindow = null
   })
+
+  const menu = Menu.buildFromTemplate(menuTemplate)
+  Menu.setApplicationMenu(menu)
 }
 
 // This method will be called when Electron has finished

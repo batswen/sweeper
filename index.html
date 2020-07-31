@@ -16,6 +16,20 @@
         window.onload = function() {
             game = new Game(10, 10, 20)
         }
+        require("electron").ipcRenderer.on("io", (event, msg, fname) => {
+            switch (msg) {
+                case "neu":
+                console.log("restart")
+                    document.getElementById("page").innerHTML = ""
+                    new Game(10, 10, 20)
+                    break
+                case "info":
+                    document.getElementById("modalDiv").style.display="block"
+                    break
+                case "reset":
+                    break
+            }
+        })
 	</script>
 </head>
 
