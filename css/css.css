@@ -1,3 +1,7 @@
+body {
+    margin: 0;
+    /*overflow: hidden;*/
+}
 #page {
     width: 400px;
     height: 400px;
@@ -31,11 +35,11 @@
     background-color: #cde;
 }
 /* just for debugging */
-
+/*
 .bomb {
     background-color: #f88;
 }
-
+*/
 
 .red {
     background-color: red;

@@ -84,6 +84,8 @@ class Game {
         if (this.running) {
             if (cell.innerHTML === "") {
                 cell.innerHTML = "🏴"
+            } else if (cell.innerHTML === "🏴") {
+                cell.innerHTML = "🏴?"
             } else {
                 cell.innerHTML = ""
             }
