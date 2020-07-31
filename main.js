@@ -21,6 +21,14 @@ const menuTemplate = [
                 type: "separator"
             },
             {
+                label: "Info",
+                accelerator: process.platform === "darwin" ? "Command+I" : "Ctrl+I",
+                click: () => { mainWindow.webContents.send("io", "info") }
+            },
+            {
+                type: "separator"
+            },
+            {
                 role: "quit",
                 accelerator: process.platform === "darwin" ? "Command+Q" : "Ctrl+Q"
             }

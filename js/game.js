@@ -75,7 +75,7 @@ class Game {
                 cell.classList.add("red")
                 cell.innerHTML = "💣"
                 this.revealAll()
-                alert("Game over")
+                this.myAlert("Game over", "Loser you are")
                 this.running = false
             }
         }
@@ -114,7 +114,7 @@ class Game {
         if (this.revealed === this.WIDTH * this.HEIGHT - this.BOMBS) {
             this.running = false
             this.revealAll()
-            alert("Winner you are!")
+            this.myAlert("Game over!", "Winner you are!")
         }
         if (!c.classList.contains("bomb")) {
             if (parseInt(c.getAttribute("data-neighbors")) > 0) {
@@ -142,5 +142,10 @@ class Game {
             // rechts unten
             if (i < this.WIDTH * this.HEIGHT - this.WIDTH - 1) this.reveal(i + this.WIDTH + 1)
         }
+    }
+    myAlert(header, body) {
+        document.getElementById("modalHeader").textContent = header
+        document.getElementById("modalP").textContent = body
+        document.getElementById("modalDiv").style.display = "block"
     }
 }

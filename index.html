@@ -12,9 +12,8 @@
 
 	<title>mineSweeper</title>
 	<script>
-        let game
         window.onload = function() {
-            game = new Game(10, 10, 20)
+            new Game(10, 10, 20)
         }
         require("electron").ipcRenderer.on("io", (event, msg, fname) => {
             switch (msg) {
@@ -24,7 +23,9 @@
                     new Game(10, 10, 20)
                     break
                 case "info":
-                    document.getElementById("modalDiv").style.display="block"
+                    document.getElementById("modalHeader").textContent = "Info"
+                    document.getElementById("modalP").textContent = "it's a game"
+                    document.getElementById("modalDiv").style.display = "block"
                     break
                 case "reset":
                     break
@@ -34,6 +35,13 @@
 </head>
 
 <body>
+    <div id="modalDiv" class="modal">
+        <div>
+            <h2 id="modalHeader"></h2>
+            <p id="modalP"></p>
+            <button onclick='document.getElementById("modalDiv").style.display="none"'>Ok</button>
+        </div>
+    </div>
     <div id="page"></div>
     <script src="js/game.js"></script>
 </body>
