@@ -16,6 +16,7 @@
     border-bottom-color: black;
     cursor: pointer;
     text-align: center;
+    line-height: 38px;
 }
 
 #page div:hover {
@@ -29,6 +30,12 @@
     border-bottom-color: white;
     background-color: #cde;
 }
+/* just for debugging */
+/*
+.bomb {
+    background-color: #f88;
+}
+*/
 
 .red {
     background-color: red;
