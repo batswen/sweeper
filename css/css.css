@@ -1,0 +1,35 @@
+#page {
+    width: 400px;
+    height: 400px;
+    display: flex;
+    flex-wrap: wrap;
+    background-color: #eee;
+}
+
+#page div {
+    width: 38px;
+    height: 38px;
+    border: 1px solid;
+    border-top-color: white;
+    border-left-color: white;
+    border-right-color: black;
+    border-bottom-color: black;
+    cursor: pointer;
+    text-align: center;
+}
+
+#page div:hover {
+    background-color: #f00;
+}
+
+.revealed {
+    border-top-color: black;
+    border-left-color: black;
+    border-right-color: white;
+    border-bottom-color: white;
+    background-color: #cde;
+}
+
+.red {
+    background-color: red;
+}
