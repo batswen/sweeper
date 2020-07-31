@@ -92,6 +92,7 @@ class Game {
             }
         }
     }
+    // show all cells (duh)
     revealAll() {
         for (let i = 0; i < this.WIDTH * this.HEIGHT; i++) {
             if (!this.cells[i].classList.contains("revealed")) {
@@ -102,6 +103,7 @@ class Game {
             }
         }
     }
+    // reveal clicked and adjacent
     reveal(i) {
         const c = this.cells[i]
         if (c.classList.contains("revealed") || c.classList.contains("bomb")) {
