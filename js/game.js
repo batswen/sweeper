@@ -80,6 +80,7 @@ class Game {
             }
         }
     }
+    // change cell text "" -> "🏴" -> "🏴?" -> ""
     toggleFlag(cell) {
         if (this.running) {
             if (cell.innerHTML === "") {
