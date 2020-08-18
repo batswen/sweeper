@@ -9,7 +9,7 @@ A simple minesweeper game based on ideas shown in this video: https://www.youtub
   `cd sweeper`
 
  3. install dependencies
-  `npm install --save-dev electron`
+  `npm install`
 
  4. run sweeper
   `npm start`

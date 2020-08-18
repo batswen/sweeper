@@ -30,23 +30,39 @@ class Game {
             bombs = 0
             if (i % this.WIDTH > 0) {
                 // links
-                if (grid[i - 1] === "bomb") { bombs++ }
+                if (grid[i - 1] === "bomb") {
+                    bombs++
+                }
                 // links oben
-                if (i > this.WIDTH && grid[i - this.WIDTH - 1] === "bomb") { bombs++ }
+                if (i > this.WIDTH && grid[i - this.WIDTH - 1] === "bomb") {
+                    bombs++
+                }
                 // links unten
-                if (i < this.WIDTH * this.HEIGHT - this.WIDTH - 1 && grid[i + this.WIDTH - 1] === "bomb") { bombs++ }
+                if (i < this.WIDTH * this.HEIGHT - this.WIDTH - 1 && grid[i + this.WIDTH - 1] === "bomb") {
+                    bombs++
+                }
             }
             // oben
-            if (i > this.WIDTH -1 && grid[i - this.WIDTH] === "bomb") { bombs++ }
+            if (i > this.WIDTH -1 && grid[i - this.WIDTH] === "bomb") {
+                bombs++
+            }
             // unten
-            if (i <  this.WIDTH * this.HEIGHT - this.WIDTH && grid[i + this.WIDTH] === "bomb") { bombs++ }
+            if (i <  this.WIDTH * this.HEIGHT - this.WIDTH && grid[i + this.WIDTH] === "bomb") {
+                bombs++
+            }
             if (i % this.WIDTH < this.WIDTH -1) {
                 // rechts
-                if (grid[i + 1] === "bomb") { bombs++ }
+                if (grid[i + 1] === "bomb") {
+                    bombs++
+                }
                 // rechts oben
-                if (i > this.WIDTH -1 && grid[i - this.WIDTH + 1] === "bomb") { bombs++ }
+                if (i > this.WIDTH -1 && grid[i - this.WIDTH + 1] === "bomb") {
+                    bombs++
+                }
                 // rechts unten
-                if (i < this.WIDTH * this.HEIGHT - this.WIDTH - 1 && grid[i + this.WIDTH + 1] === "bomb") { bombs++ }
+                if (i < this.WIDTH * this.HEIGHT - this.WIDTH - 1 && grid[i + this.WIDTH + 1] === "bomb") {
+                    bombs++
+                }
             }
             cell.setAttribute("data-neighbors", bombs)
             cell.addEventListener("click", e => {
