@@ -99,11 +99,11 @@ class Game {
     // change cell text "" -> "🏴" -> "🏴?" -> ""
     toggleFlag(cell) {
         if (this.running) {
-            if (cell.innerHTML === "") {
+            if (cell.innerHTML === "" && !cell.classList.contains("revealed")) {
                 cell.innerHTML = "🏴"
             } else if (cell.innerHTML === "🏴") {
                 cell.innerHTML = "🏴?"
-            } else {
+            } else if (cell.innerHTML === "🏴?"){
                 cell.innerHTML = ""
             }
         }
